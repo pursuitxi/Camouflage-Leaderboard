@@ -26,6 +26,16 @@ class LeaderboardDataTest(unittest.TestCase):
         )
         self.assertEqual(all_category["higherIsBetter"]["MAE"], False)
         self.assertEqual(all_category["higherIsBetter"]["ContextMeasure"], True)
+        self.assertEqual(
+            all_category["metricLabels"],
+            {
+                "MAE": "$M$",
+                "WeightedFmeasure": "$F_{\\beta}^{\\omega}$",
+                "Smeasure": "$S_{\\alpha}$",
+                "Emeasure": "$E_{\\phi}$",
+                "ContextMeasure": "$C_{\\beta}^{\\omega}$",
+            },
+        )
         self.assertEqual(len(all_category["models"]), 40)
 
     def test_preserves_model_metadata_and_nested_results(self):

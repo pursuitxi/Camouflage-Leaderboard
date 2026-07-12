@@ -28,6 +28,13 @@
             "Emeasure",
             "ContextMeasure"
           ],
+          "metricLabels": {
+            "MAE": "$M$",
+            "WeightedFmeasure": "$F_{\\beta}^{\\omega}$",
+            "Smeasure": "$S_{\\alpha}$",
+            "Emeasure": "$E_{\\phi}$",
+            "ContextMeasure": "$C_{\\beta}^{\\omega}$"
+          },
           "higherIsBetter": {
             "MAE": false,
             "WeightedFmeasure": true,
@@ -1303,6 +1310,13 @@
             "Emeasure",
             "ContextMeasure"
           ],
+          "metricLabels": {
+            "MAE": "$M$",
+            "WeightedFmeasure": "$F_{\\beta}^{\\omega}$",
+            "Smeasure": "$S_{\\alpha}$",
+            "Emeasure": "$E_{\\phi}$",
+            "ContextMeasure": "$C_{\\beta}^{\\omega}$"
+          },
           "higherIsBetter": {
             "MAE": false,
             "WeightedFmeasure": true,
@@ -1927,6 +1941,13 @@
             "Emeasure",
             "ContextMeasure"
           ],
+          "metricLabels": {
+            "MAE": "$M$",
+            "WeightedFmeasure": "$F_{\\beta}^{\\omega}$",
+            "Smeasure": "$S_{\\alpha}$",
+            "Emeasure": "$E_{\\phi}$",
+            "ContextMeasure": "$C_{\\beta}^{\\omega}$"
+          },
           "higherIsBetter": {
             "MAE": false,
             "WeightedFmeasure": true,

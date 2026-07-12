@@ -18,6 +18,14 @@ DATASETS = [
 
 METRICS = ["MAE", "WeightedFmeasure", "Smeasure", "Emeasure", "ContextMeasure"]
 
+METRIC_LABELS = {
+    "MAE": "$M$",
+    "WeightedFmeasure": "$F_{\\beta}^{\\omega}$",
+    "Smeasure": "$S_{\\alpha}$",
+    "Emeasure": "$E_{\\phi}$",
+    "ContextMeasure": "$C_{\\beta}^{\\omega}$",
+}
+
 EXCEL_TO_METRIC = {
     "MAE": "MAE",
     "WeightedFmeasure": "WeightedFmeasure",
@@ -90,6 +98,7 @@ def read_category(sheet):
         "name": sheet.title,
         "datasets": DATASETS,
         "metrics": METRICS,
+        "metricLabels": METRIC_LABELS,
         "higherIsBetter": HIGHER_IS_BETTER,
         "defaultMetric": "ContextMeasure",
         "models": models,
