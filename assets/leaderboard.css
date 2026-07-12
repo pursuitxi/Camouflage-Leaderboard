@@ -1,0 +1,112 @@
+.selectors {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.selectors label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.selectors select {
+  margin-right: 0;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.leaderboard-table.matrix-mode {
+  min-width: 1320px;
+  table-layout: auto;
+}
+
+.leaderboard-table th.dataset-group {
+  background: #d9354b;
+  color: #fff;
+  font-size: 12px;
+}
+
+.leaderboard-table th.metric {
+  min-width: 82px;
+  background: #f8485c;
+  color: #fff;
+  font-size: 11px;
+}
+
+.leaderboard-table th.meta,
+.leaderboard-table td.meta {
+  min-width: 92px;
+}
+
+.leaderboard-table th.rank-sum,
+.leaderboard-table td.rank-sum {
+  min-width: 72px;
+  font-weight: 700;
+}
+
+.leaderboard-table td.metric-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-table td.model {
+  font-weight: 600;
+}
+
+.leaderboard-table.matrix-mode th.model,
+.leaderboard-table.matrix-mode td.model {
+  min-width: 140px;
+}
+
+.leaderboard-table.matrix-mode th,
+.leaderboard-table.matrix-mode td {
+  white-space: nowrap;
+}
+
+.rank-1 td.rank,
+.rank-2 td.rank,
+.rank-3 td.rank {
+  font-weight: 800;
+  color: #d9354b;
+}
+
+@media (max-width: 768px) {
+  .benchmark {
+    padding: 20px 12px;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-description {
+    width: 88%;
+  }
+
+  .selectors {
+    justify-content: flex-start;
+  }
+
+  .selectors label {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .selectors select {
+    max-width: 58%;
+  }
+
+  .leaderboard-table {
+    font-size: 10px;
+  }
+}

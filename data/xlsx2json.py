@@ -1,119 +1,152 @@
-import pandas as pd
+import argparse
 import json
 from pathlib import Path
 
+from openpyxl import load_workbook
 
-INPUT_XLSX = fr"public\data\benchmark.xlsx"
-OUTPUT_JSON = fr"public\data\leaderboards.json"
 
 TASK_INFO = {
     "id": "cod",
-    "name": "Camouflaged Object Detection"
+    "name": "Camouflaged Object Detection",
 }
 
-# 数据集名称映射（Excel 列名 -> 标准名）
-DATASET_NAME_MAP = {
-    "CAMO": "CAMO",
-    "CASIA": "CASIA",
-    "CHAMELEON": "CHAMELEON",
-    "COD10K": "COD10K",
-    "COVERAGE": "COVERAGE",
-    "GSD": "GSD",
-    "ISTD": "ISTD",
-    "MSD": "MSD",
-    "NC4K": "NC4K",
-    "PMD": "PMD",
-    "SBU": "SBU",
-    "Trans10K": "Trans10K"
-}
+DATASETS = [
+    {"id": "camo", "name": "CAMO"},
+    {"id": "cod10k", "name": "COD10K"},
+    {"id": "nc4k", "name": "NC4K"},
+]
 
-# 当前表格只有一个指标
-METRICS = ["Cmeasure"]
+METRICS = ["MAE", "WeightedFmeasure", "Smeasure", "Emeasure", "ContextMeasure"]
+
+EXCEL_TO_METRIC = {
+    "MAE": "MAE",
+    "WeightedFmeasure": "WeightedFmeasure",
+    "Smeasure": "Smeasure",
+    "Emeasure": "Emeasure",
+    "CMeasure": "ContextMeasure",
+}
 
 HIGHER_IS_BETTER = {
-    "Cmeasure": True
+    "MAE": False,
+    "WeightedFmeasure": True,
+    "Smeasure": True,
+    "Emeasure": True,
+    "ContextMeasure": True,
 }
 
-# 模型额外信息（可选，不写就为 null）
-MODEL_META = {
-    "SINet": {
-        "paper": "https://arxiv.org/abs/2004.09030",
-        "code": "https://github.com/DengPingFan/SINet",
-        "year": 2020
-    },
-    "SINet-V2": {
-        "paper": "https://arxiv.org/abs/2108.00128",
-        "code": "https://github.com/GewelsJI/SINet-V2",
-        "year": 2021
-    }
-    # 其他模型可以继续补
-}
 
-# ======================
-# 2. 读取 Excel
-# ======================
+def normalize_size(value):
+    if value is None:
+        return None
+    return str(value).replace("×", "x")
 
-df = pd.read_excel(INPUT_XLSX)
 
-# 第一列是方法名
-method_col = df.columns[0]
-dataset_cols = df.columns[1:]
+def sheet_id(sheet_name):
+    return sheet_name.strip().lower()
 
-# ======================
-# 3. 构建 JSON 结构
-# ======================
 
-datasets_json = []
+def read_dataset_headers(sheet):
+    headers = []
+    for col_idx in range(1, sheet.max_column + 1):
+        dataset_name = sheet.cell(1, col_idx).value
+        if dataset_name:
+            headers.append((str(dataset_name).strip(), col_idx))
+    return headers
 
-for col in dataset_cols:
-    dataset_id = col.lower()
-    dataset_name = DATASET_NAME_MAP.get(col, col)
 
+def read_category(sheet):
+    dataset_headers = read_dataset_headers(sheet)
     models = []
-    for _, row in df.iterrows():
-        method_name = row[method_col]
-        score = row[col]
 
-        if pd.isna(score):
+    for row_idx in range(3, sheet.max_row + 1):
+        method_name = sheet.cell(row_idx, 1).value
+        if not method_name:
             continue
 
-        meta = MODEL_META.get(method_name, {})
+        model = {
+            "name": str(method_name).strip(),
+            "pubYear": sheet.cell(row_idx, 2).value,
+            "size": normalize_size(sheet.cell(row_idx, 3).value),
+            "backbone": sheet.cell(row_idx, 4).value,
+            "paper": None,
+            "code": None,
+            "results": {},
+        }
 
-        models.append({
-            "name": method_name,
-            "paper": meta.get("paper"),
-            "code": meta.get("code"),
-            "year": meta.get("year"),
-            "results": {
-                "Cmeasure": round(float(score), 3)
-            }
-        })
+        for dataset_name, start_col in dataset_headers:
+            dataset_id = dataset_name.strip().lower()
+            model["results"][dataset_id] = {}
+            for offset in range(len(METRICS)):
+                excel_metric = sheet.cell(2, start_col + offset).value
+                metric = EXCEL_TO_METRIC.get(excel_metric)
+                value = sheet.cell(row_idx, start_col + offset).value
+                if metric and isinstance(value, (int, float)):
+                    model["results"][dataset_id][metric] = float(value)
 
-    datasets_json.append({
-        "id": dataset_id,
-        "name": dataset_name,
+        models.append(model)
+
+    return {
+        "id": sheet_id(sheet.title),
+        "name": sheet.title,
+        "datasets": DATASETS,
         "metrics": METRICS,
         "higherIsBetter": HIGHER_IS_BETTER,
-        "models": models
-    })
+        "defaultMetric": "ContextMeasure",
+        "models": models,
+    }
 
-final_json = {
-    "tasks": [
-        {
-            "id": TASK_INFO["id"],
-            "name": TASK_INFO["name"],
-            "datasets": datasets_json
-        }
-    ]
-}
 
-# ======================
-# 4. 保存 JSON
-# ======================
+def build_leaderboard_json(input_xlsx):
+    workbook = load_workbook(input_xlsx, data_only=True)
+    categories = [read_category(sheet) for sheet in workbook.worksheets]
 
-Path(OUTPUT_JSON).write_text(
-    json.dumps(final_json, indent=2, ensure_ascii=False),
-    encoding="utf-8"
-)
+    return {
+        "tasks": [
+            {
+                "id": TASK_INFO["id"],
+                "name": TASK_INFO["name"],
+                "categories": categories,
+            }
+        ]
+    }
 
-print(f"Saved to {OUTPUT_JSON}")
+
+def rank_sum(models, dataset_ids, metric, higher_is_better):
+    totals = {model["name"]: 0 for model in models}
+    sortable_models = {model["name"]: model for model in models}
+
+    for dataset_id in dataset_ids:
+        scored = []
+        for model in models:
+            score = model.get("results", {}).get(dataset_id, {}).get(metric)
+            if isinstance(score, (int, float)):
+                scored.append((model["name"], score))
+
+        scored.sort(key=lambda item: item[1], reverse=higher_is_better[metric])
+
+        for index, (name, _) in enumerate(scored, start=1):
+            totals[name] += index
+
+    ranked = []
+    for name, total in totals.items():
+        model = dict(sortable_models[name])
+        model["rankSum"] = total
+        ranked.append(model)
+
+    ranked.sort(key=lambda model: (model["rankSum"], model["name"]))
+    return ranked
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Convert benchmark.xlsx to leaderboards.json")
+    parser.add_argument("--input", type=Path, default=Path(__file__).with_name("benchmark.xlsx"))
+    parser.add_argument("--output", type=Path, default=Path(__file__).with_name("leaderboards.json"))
+    args = parser.parse_args()
+
+    payload = build_leaderboard_json(args.input)
+    args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Saved to {args.output}")
+
+
+if __name__ == "__main__":
+    main()

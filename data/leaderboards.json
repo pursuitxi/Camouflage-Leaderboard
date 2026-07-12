@@ -3,1659 +3,2588 @@
     {
       "id": "cod",
       "name": "Camouflaged Object Detection",
-      "datasets": [
+      "categories": [
         {
-          "id": "camo",
-          "name": "CAMO",
+          "id": "all",
+          "name": "All",
+          "datasets": [
+            {
+              "id": "camo",
+              "name": "CAMO"
+            },
+            {
+              "id": "cod10k",
+              "name": "COD10K"
+            },
+            {
+              "id": "nc4k",
+              "name": "NC4K"
+            }
+          ],
           "metrics": [
-            "Cmeasure"
+            "MAE",
+            "WeightedFmeasure",
+            "Smeasure",
+            "Emeasure",
+            "ContextMeasure"
           ],
           "higherIsBetter": {
-            "Cmeasure": true
+            "MAE": false,
+            "WeightedFmeasure": true,
+            "Smeasure": true,
+            "Emeasure": true,
+            "ContextMeasure": true
           },
+          "defaultMetric": "ContextMeasure",
           "models": [
             {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.762
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.816
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.761
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.686
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.727
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.349
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.864
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.643
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.879
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.311
-              }
-            },
-            {
               "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.634
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.777
-              }
-            },
-            {
-              "name": "UniverSeg",
+              "pubYear": "CVPR 20",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
               "paper": null,
               "code": null,
-              "year": null,
               "results": {
-                "Cmeasure": 0.283
+                "camo": {
+                  "MAE": 0.099657,
+                  "WeightedFmeasure": 0.605563,
+                  "Smeasure": 0.751457,
+                  "Emeasure": 0.834471,
+                  "ContextMeasure": 0.650249
+                },
+                "cod10k": {
+                  "MAE": 0.051128,
+                  "WeightedFmeasure": 0.550906,
+                  "Smeasure": 0.771005,
+                  "Emeasure": 0.797101,
+                  "ContextMeasure": 0.617628
+                },
+                "nc4k": {
+                  "MAE": 0.057642,
+                  "WeightedFmeasure": 0.722733,
+                  "Smeasure": 0.807991,
+                  "Emeasure": 0.883296,
+                  "ContextMeasure": 0.740042
+                }
+              }
+            },
+            {
+              "name": "PraNet",
+              "pubYear": "MICCAI 20",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.094187,
+                  "WeightedFmeasure": 0.662526,
+                  "Smeasure": 0.769226,
+                  "Emeasure": 0.834652,
+                  "ContextMeasure": 0.70668
+                },
+                "cod10k": {
+                  "MAE": 0.045115,
+                  "WeightedFmeasure": 0.629389,
+                  "Smeasure": 0.789443,
+                  "Emeasure": 0.839695,
+                  "ContextMeasure": 0.684459
+                },
+                "nc4k": {
+                  "MAE": 0.058789,
+                  "WeightedFmeasure": 0.724494,
+                  "Smeasure": 0.822175,
+                  "Emeasure": 0.875388,
+                  "ContextMeasure": 0.760371
+                }
+              }
+            },
+            {
+              "name": "TINet",
+              "pubYear": "AAAI 21",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.086519,
+                  "WeightedFmeasure": 0.67822,
+                  "Smeasure": 0.780525,
+                  "Emeasure": 0.846748,
+                  "ContextMeasure": 0.723309
+                },
+                "cod10k": {
+                  "MAE": 0.042487,
+                  "WeightedFmeasure": 0.635046,
+                  "Smeasure": 0.793153,
+                  "Emeasure": 0.847513,
+                  "ContextMeasure": 0.683746
+                },
+                "nc4k": {
+                  "MAE": 0.055159,
+                  "WeightedFmeasure": 0.733748,
+                  "Smeasure": 0.82872,
+                  "Emeasure": 0.881908,
+                  "ContextMeasure": 0.761201
+                }
+              }
+            },
+            {
+              "name": "LSR",
+              "pubYear": "CVPR 21",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.080103,
+                  "WeightedFmeasure": 0.696298,
+                  "Smeasure": 0.787163,
+                  "Emeasure": 0.859164,
+                  "ContextMeasure": 0.721905
+                },
+                "cod10k": {
+                  "MAE": 0.036757,
+                  "WeightedFmeasure": 0.672823,
+                  "Smeasure": 0.804423,
+                  "Emeasure": 0.882844,
+                  "ContextMeasure": 0.702821
+                },
+                "nc4k": {
+                  "MAE": 0.048011,
+                  "WeightedFmeasure": 0.765542,
+                  "Smeasure": 0.839503,
+                  "Emeasure": 0.904087,
+                  "ContextMeasure": 0.77644
+                }
+              }
+            },
+            {
+              "name": "MGL-R",
+              "pubYear": "CVPR 21",
+              "size": "473 x 473",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.088399,
+                  "WeightedFmeasure": 0.672794,
+                  "Smeasure": 0.7755,
+                  "Emeasure": 0.847619,
+                  "ContextMeasure": 0.699782
+                },
+                "cod10k": {
+                  "MAE": 0.035307,
+                  "WeightedFmeasure": 0.665533,
+                  "Smeasure": 0.813968,
+                  "Emeasure": 0.863801,
+                  "ContextMeasure": 0.697354
+                },
+                "nc4k": {
+                  "MAE": 0.052593,
+                  "WeightedFmeasure": 0.739183,
+                  "Smeasure": 0.832596,
+                  "Emeasure": 0.889353,
+                  "ContextMeasure": 0.757284
+                }
+              }
+            },
+            {
+              "name": "PFNet",
+              "pubYear": "CVPR 21",
+              "size": "416 x 416",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.084899,
+                  "WeightedFmeasure": 0.695206,
+                  "Smeasure": 0.782256,
+                  "Emeasure": 0.854705,
+                  "ContextMeasure": 0.72308
+                },
+                "cod10k": {
+                  "MAE": 0.039606,
+                  "WeightedFmeasure": 0.65987,
+                  "Smeasure": 0.799842,
+                  "Emeasure": 0.86827,
+                  "ContextMeasure": 0.699616
+                },
+                "nc4k": {
+                  "MAE": 0.052748,
+                  "WeightedFmeasure": 0.745268,
+                  "Smeasure": 0.82904,
+                  "Emeasure": 0.893747,
+                  "ContextMeasure": 0.766045
+                }
+              }
+            },
+            {
+              "name": "UJSCOD",
+              "pubYear": "CVPR 21",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.072976,
+                  "WeightedFmeasure": 0.727947,
+                  "Smeasure": 0.800146,
+                  "Emeasure": 0.872263,
+                  "ContextMeasure": 0.748471
+                },
+                "cod10k": {
+                  "MAE": 0.035309,
+                  "WeightedFmeasure": 0.683755,
+                  "Smeasure": 0.808883,
+                  "Emeasure": 0.882195,
+                  "ContextMeasure": 0.712549
+                },
+                "nc4k": {
+                  "MAE": 0.046549,
+                  "WeightedFmeasure": 0.771283,
+                  "Smeasure": 0.841519,
+                  "Emeasure": 0.906175,
+                  "ContextMeasure": 0.781794
+                }
+              }
+            },
+            {
+              "name": "UGTR",
+              "pubYear": "ICCV 21",
+              "size": "473 x 473",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.085855,
+                  "WeightedFmeasure": 0.686196,
+                  "Smeasure": 0.784734,
+                  "Emeasure": 0.860968,
+                  "ContextMeasure": 0.718708
+                },
+                "cod10k": {
+                  "MAE": 0.035389,
+                  "WeightedFmeasure": 0.666958,
+                  "Smeasure": 0.817769,
+                  "Emeasure": 0.849922,
+                  "ContextMeasure": 0.704865
+                },
+                "nc4k": {
+                  "MAE": 0.051778,
+                  "WeightedFmeasure": 0.746907,
+                  "Smeasure": 0.839349,
+                  "Emeasure": 0.888733,
+                  "ContextMeasure": 0.770079
+                }
+              }
+            },
+            {
+              "name": "C2FNet",
+              "pubYear": "IJCAI 21",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.079885,
+                  "WeightedFmeasure": 0.718651,
+                  "Smeasure": 0.796138,
+                  "Emeasure": 0.864866,
+                  "ContextMeasure": 0.743556
+                },
+                "cod10k": {
+                  "MAE": 0.036024,
+                  "WeightedFmeasure": 0.68619,
+                  "Smeasure": 0.812951,
+                  "Emeasure": 0.88559,
+                  "ContextMeasure": 0.72223
+                },
+                "nc4k": {
+                  "MAE": 0.049049,
+                  "WeightedFmeasure": 0.762383,
+                  "Smeasure": 0.838344,
+                  "Emeasure": 0.901005,
+                  "ContextMeasure": 0.784486
+                }
+              }
+            },
+            {
+              "name": "FDNet",
+              "pubYear": "CVPR 22",
+              "size": "416 x 416",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.06291,
+                  "WeightedFmeasure": 0.774585,
+                  "Smeasure": 0.841511,
+                  "Emeasure": 0.901407,
+                  "ContextMeasure": 0.807508
+                },
+                "cod10k": {
+                  "MAE": 0.029717,
+                  "WeightedFmeasure": 0.728842,
+                  "Smeasure": 0.840418,
+                  "Emeasure": 0.905786,
+                  "ContextMeasure": 0.76756
+                },
+                "nc4k": {
+                  "MAE": 0.051732,
+                  "WeightedFmeasure": 0.749598,
+                  "Smeasure": 0.833874,
+                  "Emeasure": 0.895454,
+                  "ContextMeasure": 0.778682
+                }
+              }
+            },
+            {
+              "name": "SegMaR",
+              "pubYear": "CVPR 22",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.070936,
+                  "WeightedFmeasure": 0.752903,
+                  "Smeasure": 0.815499,
+                  "Emeasure": 0.88136,
+                  "ContextMeasure": 0.771215
+                },
+                "cod10k": {
+                  "MAE": 0.033879,
+                  "WeightedFmeasure": 0.724022,
+                  "Smeasure": 0.833103,
+                  "Emeasure": 0.893434,
+                  "ContextMeasure": 0.745458
+                },
+                "nc4k": {
+                  "MAE": 0.04582,
+                  "WeightedFmeasure": 0.78104,
+                  "Smeasure": 0.840568,
+                  "Emeasure": 0.905253,
+                  "ContextMeasure": 0.779395
+                }
               }
             },
             {
               "name": "ZoomNet",
+              "pubYear": "CVPR 22",
+              "size": "384 x 384",
+              "backbone": "ResNet-50",
               "paper": null,
               "code": null,
-              "year": null,
               "results": {
-                "Cmeasure": 0.722
+                "camo": {
+                  "MAE": 0.065936,
+                  "WeightedFmeasure": 0.752241,
+                  "Smeasure": 0.819749,
+                  "Emeasure": 0.8825,
+                  "ContextMeasure": 0.772882
+                },
+                "cod10k": {
+                  "MAE": 0.028911,
+                  "WeightedFmeasure": 0.72875,
+                  "Smeasure": 0.838408,
+                  "Emeasure": 0.892921,
+                  "ContextMeasure": 0.742305
+                },
+                "nc4k": {
+                  "MAE": 0.043368,
+                  "WeightedFmeasure": 0.784401,
+                  "Smeasure": 0.852816,
+                  "Emeasure": 0.906819,
+                  "ContextMeasure": 0.791568
+                }
+              }
+            },
+            {
+              "name": "BGNet",
+              "pubYear": "IJCAI 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.073405,
+                  "WeightedFmeasure": 0.748517,
+                  "Smeasure": 0.811574,
+                  "Emeasure": 0.876195,
+                  "ContextMeasure": 0.769641
+                },
+                "cod10k": {
+                  "MAE": 0.032558,
+                  "WeightedFmeasure": 0.721886,
+                  "Smeasure": 0.830679,
+                  "Emeasure": 0.902128,
+                  "ContextMeasure": 0.74488
+                },
+                "nc4k": {
+                  "MAE": 0.04439,
+                  "WeightedFmeasure": 0.788375,
+                  "Smeasure": 0.851026,
+                  "Emeasure": 0.910757,
+                  "ContextMeasure": 0.798772
+                }
+              }
+            },
+            {
+              "name": "SINet-V2",
+              "pubYear": "TPAMI 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.070489,
+                  "WeightedFmeasure": 0.742566,
+                  "Smeasure": 0.820105,
+                  "Emeasure": 0.884171,
+                  "ContextMeasure": 0.777817
+                },
+                "cod10k": {
+                  "MAE": 0.036773,
+                  "WeightedFmeasure": 0.67962,
+                  "Smeasure": 0.815121,
+                  "Emeasure": 0.86355,
+                  "ContextMeasure": 0.725571
+                },
+                "nc4k": {
+                  "MAE": 0.047611,
+                  "WeightedFmeasure": 0.769817,
+                  "Smeasure": 0.847236,
+                  "Emeasure": 0.901089,
+                  "ContextMeasure": 0.793961
+                }
+              }
+            },
+            {
+              "name": "TPRNet",
+              "pubYear": "TVCJ 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.073811,
+                  "WeightedFmeasure": 0.725481,
+                  "Smeasure": 0.807198,
+                  "Emeasure": 0.880208,
+                  "ContextMeasure": 0.755895
+                },
+                "cod10k": {
+                  "MAE": 0.036002,
+                  "WeightedFmeasure": 0.683469,
+                  "Smeasure": 0.817006,
+                  "Emeasure": 0.869252,
+                  "ContextMeasure": 0.720905
+                },
+                "nc4k": {
+                  "MAE": 0.047575,
+                  "WeightedFmeasure": 0.768127,
+                  "Smeasure": 0.846428,
+                  "Emeasure": 0.901153,
+                  "ContextMeasure": 0.786477
+                }
+              }
+            },
+            {
+              "name": "FEDER",
+              "pubYear": "CVPR 23",
+              "size": "384 x 384",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.071223,
+                  "WeightedFmeasure": 0.73773,
+                  "Smeasure": 0.8021,
+                  "Emeasure": 0.876645,
+                  "ContextMeasure": 0.760299
+                },
+                "cod10k": {
+                  "MAE": 0.0316,
+                  "WeightedFmeasure": 0.715542,
+                  "Smeasure": 0.822312,
+                  "Emeasure": 0.901024,
+                  "ContextMeasure": 0.736154
+                },
+                "nc4k": {
+                  "MAE": 0.044251,
+                  "WeightedFmeasure": 0.788638,
+                  "Smeasure": 0.847044,
+                  "Emeasure": 0.912969,
+                  "ContextMeasure": 0.794146
+                }
+              }
+            },
+            {
+              "name": "DGNet",
+              "pubYear": "MIR 23",
+              "size": "352 x 352",
+              "backbone": "EfficientNet-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.057195,
+                  "WeightedFmeasure": 0.76882,
+                  "Smeasure": 0.839056,
+                  "Emeasure": 0.906121,
+                  "ContextMeasure": 0.800454
+                },
+                "cod10k": {
+                  "MAE": 0.033057,
+                  "WeightedFmeasure": 0.692961,
+                  "Smeasure": 0.822305,
+                  "Emeasure": 0.878622,
+                  "ContextMeasure": 0.736336
+                },
+                "nc4k": {
+                  "MAE": 0.042465,
+                  "WeightedFmeasure": 0.783666,
+                  "Smeasure": 0.856899,
+                  "Emeasure": 0.910366,
+                  "ContextMeasure": 0.805161
+                }
+              }
+            },
+            {
+              "name": "DINet",
+              "pubYear": "TMM 24",
+              "size": "400 x 400",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.068195,
+                  "WeightedFmeasure": 0.747675,
+                  "Smeasure": 0.821122,
+                  "Emeasure": 0.883726,
+                  "ContextMeasure": 0.777683
+                },
+                "cod10k": {
+                  "MAE": 0.031368,
+                  "WeightedFmeasure": 0.723548,
+                  "Smeasure": 0.832042,
+                  "Emeasure": 0.901534,
+                  "ContextMeasure": 0.750047
+                },
+                "nc4k": {
+                  "MAE": 0.043484,
+                  "WeightedFmeasure": 0.790312,
+                  "Smeasure": 0.855821,
+                  "Emeasure": 0.912295,
+                  "ContextMeasure": 0.804858
+                }
+              }
+            },
+            {
+              "name": "RUN",
+              "pubYear": "ICML 25",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.068671,
+                  "WeightedFmeasure": 0.744457,
+                  "Smeasure": 0.8126,
+                  "Emeasure": 0.883647,
+                  "ContextMeasure": 0.771912
+                },
+                "cod10k": {
+                  "MAE": 0.029101,
+                  "WeightedFmeasure": 0.735249,
+                  "Smeasure": 0.839059,
+                  "Emeasure": 0.909856,
+                  "ContextMeasure": 0.766572
+                },
+                "nc4k": {
+                  "MAE": 0.042466,
+                  "WeightedFmeasure": 0.790033,
+                  "Smeasure": 0.854142,
+                  "Emeasure": 0.915765,
+                  "ContextMeasure": 0.808133
+                }
+              }
+            },
+            {
+              "name": "DTINet",
+              "pubYear": "ICPR 22",
+              "size": "256 x 256",
+              "backbone": "ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.050383,
+                  "WeightedFmeasure": 0.795635,
+                  "Smeasure": 0.856,
+                  "Emeasure": 0.917904,
+                  "ContextMeasure": 0.828566
+                },
+                "cod10k": {
+                  "MAE": 0.034223,
+                  "WeightedFmeasure": 0.694648,
+                  "Smeasure": 0.823918,
+                  "Emeasure": 0.880803,
+                  "ContextMeasure": 0.737303
+                },
+                "nc4k": {
+                  "MAE": 0.040644,
+                  "WeightedFmeasure": 0.792326,
+                  "Smeasure": 0.86274,
+                  "Emeasure": 0.914331,
+                  "ContextMeasure": 0.81572
+                }
+              }
+            },
+            {
+              "name": "FSPNet",
+              "pubYear": "CVPR 23",
+              "size": "384 x 384",
+              "backbone": "ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.050307,
+                  "WeightedFmeasure": 0.79893,
+                  "Smeasure": 0.855948,
+                  "Emeasure": 0.919147,
+                  "ContextMeasure": 0.819795
+                },
+                "cod10k": {
+                  "MAE": 0.026374,
+                  "WeightedFmeasure": 0.734659,
+                  "Smeasure": 0.850643,
+                  "Emeasure": 0.899883,
+                  "ContextMeasure": 0.761906
+                },
+                "nc4k": {
+                  "MAE": 0.034984,
+                  "WeightedFmeasure": 0.815595,
+                  "Smeasure": 0.878501,
+                  "Emeasure": 0.923001,
+                  "ContextMeasure": 0.827113
+                }
+              }
+            },
+            {
+              "name": "RISNet",
+              "pubYear": "CVPR 24",
+              "size": "704 x 704",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.050426,
+                  "WeightedFmeasure": 0.827368,
+                  "Smeasure": 0.869549,
+                  "Emeasure": 0.921756,
+                  "ContextMeasure": 0.847184
+                },
+                "cod10k": {
+                  "MAE": 0.024702,
+                  "WeightedFmeasure": 0.798985,
+                  "Smeasure": 0.87335,
+                  "Emeasure": 0.927288,
+                  "ContextMeasure": 0.806292
+                },
+                "nc4k": {
+                  "MAE": 0.036649,
+                  "WeightedFmeasure": 0.834196,
+                  "Smeasure": 0.881713,
+                  "Emeasure": 0.926387,
+                  "ContextMeasure": 0.83697
+                }
+              }
+            },
+            {
+              "name": "VSCode",
+              "pubYear": "CVPR 24",
+              "size": "352 x 352",
+              "backbone": "Swin-S",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.046051,
+                  "WeightedFmeasure": 0.820375,
+                  "Smeasure": 0.873297,
+                  "Emeasure": 0.928323,
+                  "ContextMeasure": 0.843096
+                },
+                "cod10k": {
+                  "MAE": 0.023476,
+                  "WeightedFmeasure": 0.780379,
+                  "Smeasure": 0.86878,
+                  "Emeasure": 0.928707,
+                  "ContextMeasure": 0.79582
+                },
+                "nc4k": {
+                  "MAE": 0.031537,
+                  "WeightedFmeasure": 0.84127,
+                  "Smeasure": 0.891029,
+                  "Emeasure": 0.938631,
+                  "ContextMeasure": 0.845411
+                }
+              }
+            },
+            {
+              "name": "FSEL",
+              "pubYear": "ECCV 24",
+              "size": "416 x 416",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040004,
+                  "WeightedFmeasure": 0.850789,
+                  "Smeasure": 0.884853,
+                  "Emeasure": 0.942449,
+                  "ContextMeasure": 0.866938
+                },
+                "cod10k": {
+                  "MAE": 0.021145,
+                  "WeightedFmeasure": 0.799578,
+                  "Smeasure": 0.876536,
+                  "Emeasure": 0.927702,
+                  "ContextMeasure": 0.814974
+                },
+                "nc4k": {
+                  "MAE": 0.029895,
+                  "WeightedFmeasure": 0.852937,
+                  "Smeasure": 0.892991,
+                  "Emeasure": 0.940829,
+                  "ContextMeasure": 0.854939
+                }
+              }
+            },
+            {
+              "name": "DPRNet",
+              "pubYear": "TCSVT 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.045998,
+                  "WeightedFmeasure": 0.829911,
+                  "Smeasure": 0.864964,
+                  "Emeasure": 0.93098,
+                  "ContextMeasure": 0.844797
+                },
+                "cod10k": {
+                  "MAE": 0.024945,
+                  "WeightedFmeasure": 0.771456,
+                  "Smeasure": 0.854432,
+                  "Emeasure": 0.925979,
+                  "ContextMeasure": 0.788372
+                },
+                "nc4k": {
+                  "MAE": 0.03275,
+                  "WeightedFmeasure": 0.838395,
+                  "Smeasure": 0.879573,
+                  "Emeasure": 0.936511,
+                  "ContextMeasure": 0.839721
+                }
+              }
+            },
+            {
+              "name": "CamoFormer",
+              "pubYear": "TPAMI 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.046098,
+                  "WeightedFmeasure": 0.830599,
+                  "Smeasure": 0.871779,
+                  "Emeasure": 0.931051,
+                  "ContextMeasure": 0.848221
+                },
+                "cod10k": {
+                  "MAE": 0.022559,
+                  "WeightedFmeasure": 0.78638,
+                  "Smeasure": 0.869074,
+                  "Emeasure": 0.930989,
+                  "ContextMeasure": 0.800612
+                },
+                "nc4k": {
+                  "MAE": 0.030128,
+                  "WeightedFmeasure": 0.847008,
+                  "Smeasure": 0.891535,
+                  "Emeasure": 0.940926,
+                  "ContextMeasure": 0.849856
+                }
+              }
+            },
+            {
+              "name": "ZoomNeXt",
+              "pubYear": "TPAMI 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040405,
+                  "WeightedFmeasure": 0.859478,
+                  "Smeasure": 0.888091,
+                  "Emeasure": 0.935113,
+                  "ContextMeasure": 0.868392
+                },
+                "cod10k": {
+                  "MAE": 0.016973,
+                  "WeightedFmeasure": 0.838263,
+                  "Smeasure": 0.898277,
+                  "Emeasure": 0.945402,
+                  "ContextMeasure": 0.835778
+                },
+                "nc4k": {
+                  "MAE": 0.027706,
+                  "WeightedFmeasure": 0.865329,
+                  "Smeasure": 0.900448,
+                  "Emeasure": 0.943264,
+                  "ContextMeasure": 0.860059
+                }
+              }
+            },
+            {
+              "name": "ESCNet",
+              "pubYear": "ICCV 25",
+              "size": "416 x 416",
+              "backbone": "PVTv2-B5",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040774,
+                  "WeightedFmeasure": 0.84883,
+                  "Smeasure": 0.875478,
+                  "Emeasure": 0.940346,
+                  "ContextMeasure": 0.858211
+                },
+                "cod10k": {
+                  "MAE": 0.020412,
+                  "WeightedFmeasure": 0.808231,
+                  "Smeasure": 0.873488,
+                  "Emeasure": 0.944463,
+                  "ContextMeasure": 0.812948
+                },
+                "nc4k": {
+                  "MAE": 0.027838,
+                  "WeightedFmeasure": 0.863953,
+                  "Smeasure": 0.892857,
+                  "Emeasure": 0.948664,
+                  "ContextMeasure": 0.857771
+                }
+              }
+            },
+            {
+              "name": "SAM-TTT",
+              "pubYear": "MM 25",
+              "size": "1024 x 1024",
+              "backbone": "SAM ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.045524,
+                  "WeightedFmeasure": 0.837374,
+                  "Smeasure": 0.868514,
+                  "Emeasure": 0.942049,
+                  "ContextMeasure": 0.854931
+                },
+                "cod10k": {
+                  "MAE": 0.024241,
+                  "WeightedFmeasure": 0.801214,
+                  "Smeasure": 0.873989,
+                  "Emeasure": 0.931562,
+                  "ContextMeasure": 0.819002
+                },
+                "nc4k": {
+                  "MAE": 0.032814,
+                  "WeightedFmeasure": 0.854315,
+                  "Smeasure": 0.890245,
+                  "Emeasure": 0.946195,
+                  "ContextMeasure": 0.856707
+                }
+              }
+            },
+            {
+              "name": "CFRN",
+              "pubYear": "TIP 25",
+              "size": "384 x 384",
+              "backbone": "Swin-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.03901,
+                  "WeightedFmeasure": 0.848512,
+                  "Smeasure": 0.880843,
+                  "Emeasure": 0.943075,
+                  "ContextMeasure": 0.863766
+                },
+                "cod10k": {
+                  "MAE": 0.020854,
+                  "WeightedFmeasure": 0.799517,
+                  "Smeasure": 0.872395,
+                  "Emeasure": 0.939453,
+                  "ContextMeasure": 0.812053
+                },
+                "nc4k": {
+                  "MAE": 0.029101,
+                  "WeightedFmeasure": 0.854557,
+                  "Smeasure": 0.89105,
+                  "Emeasure": 0.947337,
+                  "ContextMeasure": 0.855662
+                }
+              }
+            },
+            {
+              "name": "SENet",
+              "pubYear": "TIP 25",
+              "size": "384 x 384",
+              "backbone": "MAE",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.03877,
+                  "WeightedFmeasure": 0.847013,
+                  "Smeasure": 0.888407,
+                  "Emeasure": 0.926797,
+                  "ContextMeasure": 0.864406
+                },
+                "cod10k": {
+                  "MAE": 0.023902,
+                  "WeightedFmeasure": 0.779063,
+                  "Smeasure": 0.865339,
+                  "Emeasure": 0.919181,
+                  "ContextMeasure": 0.794531
+                },
+                "nc4k": {
+                  "MAE": 0.031921,
+                  "WeightedFmeasure": 0.843483,
+                  "Smeasure": 0.888758,
+                  "Emeasure": 0.930212,
+                  "ContextMeasure": 0.844688
+                }
+              }
+            },
+            {
+              "name": "CODIB",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.044982,
+                  "WeightedFmeasure": 0.831155,
+                  "Smeasure": 0.875448,
+                  "Emeasure": 0.923765,
+                  "ContextMeasure": 0.849559
+                },
+                "cod10k": {
+                  "MAE": 0.02277,
+                  "WeightedFmeasure": 0.787417,
+                  "Smeasure": 0.869709,
+                  "Emeasure": 0.9261,
+                  "ContextMeasure": 0.80221
+                },
+                "nc4k": {
+                  "MAE": 0.031793,
+                  "WeightedFmeasure": 0.844778,
+                  "Smeasure": 0.89004,
+                  "Emeasure": 0.931825,
+                  "ContextMeasure": 0.847487
+                }
+              }
+            },
+            {
+              "name": "SFCNet",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "SMT-T",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042251,
+                  "WeightedFmeasure": 0.84561,
+                  "Smeasure": 0.881545,
+                  "Emeasure": 0.934342,
+                  "ContextMeasure": 0.86045
+                },
+                "cod10k": {
+                  "MAE": 0.021773,
+                  "WeightedFmeasure": 0.797447,
+                  "Smeasure": 0.872347,
+                  "Emeasure": 0.93825,
+                  "ContextMeasure": 0.804539
+                },
+                "nc4k": {
+                  "MAE": 0.030883,
+                  "WeightedFmeasure": 0.849591,
+                  "Smeasure": 0.890649,
+                  "Emeasure": 0.939427,
+                  "ContextMeasure": 0.847204
+                }
+              }
+            },
+            {
+              "name": "UTNet",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "SMT-T",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.048858,
+                  "WeightedFmeasure": 0.82867,
+                  "Smeasure": 0.867855,
+                  "Emeasure": 0.925667,
+                  "ContextMeasure": 0.84539
+                },
+                "cod10k": {
+                  "MAE": 0.022398,
+                  "WeightedFmeasure": 0.791345,
+                  "Smeasure": 0.868223,
+                  "Emeasure": 0.933167,
+                  "ContextMeasure": 0.799023
+                },
+                "nc4k": {
+                  "MAE": 0.032036,
+                  "WeightedFmeasure": 0.845693,
+                  "Smeasure": 0.88743,
+                  "Emeasure": 0.938114,
+                  "ContextMeasure": 0.844815
+                }
+              }
+            },
+            {
+              "name": "Camodiffusion",
+              "pubYear": "TPAMI 25",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042376,
+                  "WeightedFmeasure": 0.85125,
+                  "Smeasure": 0.878121,
+                  "Emeasure": 0.939945,
+                  "ContextMeasure": 0.859958
+                },
+                "cod10k": {
+                  "MAE": 0.019005,
+                  "WeightedFmeasure": 0.81682,
+                  "Smeasure": 0.883029,
+                  "Emeasure": 0.946286,
+                  "ContextMeasure": 0.817885
+                },
+                "nc4k": {
+                  "MAE": 0.028323,
+                  "WeightedFmeasure": 0.860894,
+                  "Smeasure": 0.895103,
+                  "Emeasure": 0.945948,
+                  "ContextMeasure": 0.854027
+                }
+              }
+            },
+            {
+              "name": "VSCode-V2",
+              "pubYear": "TPAMI 25",
+              "size": "352 x 352",
+              "backbone": "Swin-S",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.048603,
+                  "WeightedFmeasure": 0.817204,
+                  "Smeasure": 0.874944,
+                  "Emeasure": 0.921482,
+                  "ContextMeasure": 0.840361
+                },
+                "cod10k": {
+                  "MAE": 0.023694,
+                  "WeightedFmeasure": 0.786984,
+                  "Smeasure": 0.874049,
+                  "Emeasure": 0.925344,
+                  "ContextMeasure": 0.80073
+                },
+                "nc4k": {
+                  "MAE": 0.031195,
+                  "WeightedFmeasure": 0.845395,
+                  "Smeasure": 0.896533,
+                  "Emeasure": 0.937574,
+                  "ContextMeasure": 0.848596
+                }
+              }
+            },
+            {
+              "name": "GBNet",
+              "pubYear": "TIP 26",
+              "size": "704 x 704",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.044,
+                  "WeightedFmeasure": 0.847414,
+                  "Smeasure": 0.880945,
+                  "Emeasure": 0.926423,
+                  "ContextMeasure": 0.862471
+                },
+                "cod10k": {
+                  "MAE": 0.019008,
+                  "WeightedFmeasure": 0.837026,
+                  "Smeasure": 0.897669,
+                  "Emeasure": 0.944955,
+                  "ContextMeasure": 0.838313
+                },
+                "nc4k": {
+                  "MAE": 0.030385,
+                  "WeightedFmeasure": 0.859814,
+                  "Smeasure": 0.897484,
+                  "Emeasure": 0.934711,
+                  "ContextMeasure": 0.858333
+                }
+              }
+            },
+            {
+              "name": "ICL-Camo",
+              "pubYear": "TIP 26",
+              "size": "392 x 392",
+              "backbone": "ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.036927,
+                  "WeightedFmeasure": 0.858965,
+                  "Smeasure": 0.892119,
+                  "Emeasure": 0.94429,
+                  "ContextMeasure": 0.870252
+                },
+                "cod10k": {
+                  "MAE": 0.016613,
+                  "WeightedFmeasure": 0.834191,
+                  "Smeasure": 0.896363,
+                  "Emeasure": 0.949806,
+                  "ContextMeasure": 0.837471
+                },
+                "nc4k": {
+                  "MAE": 0.023791,
+                  "WeightedFmeasure": 0.878994,
+                  "Smeasure": 0.912032,
+                  "Emeasure": 0.954449,
+                  "ContextMeasure": 0.872806
+                }
+              }
+            },
+            {
+              "name": "SAM2-UNet",
+              "pubYear": "VINT 26",
+              "size": "352 x 352",
+              "backbone": "SAM2-Hiera-L",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042122,
+                  "WeightedFmeasure": 0.844699,
+                  "Smeasure": 0.883629,
+                  "Emeasure": 0.933421,
+                  "ContextMeasure": 0.858507
+                },
+                "cod10k": {
+                  "MAE": 0.020992,
+                  "WeightedFmeasure": 0.798311,
+                  "Smeasure": 0.880311,
+                  "Emeasure": 0.926162,
+                  "ContextMeasure": 0.812951
+                },
+                "nc4k": {
+                  "MAE": 0.02935,
+                  "WeightedFmeasure": 0.856329,
+                  "Smeasure": 0.901009,
+                  "Emeasure": 0.940328,
+                  "ContextMeasure": 0.856809
+                }
+              }
+            },
+            {
+              "name": "DepthSAM",
+              "pubYear": "CVPR 26",
+              "size": "512 x 512",
+              "backbone": "DAv2 ViT-L",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.028033,
+                  "WeightedFmeasure": 0.894839,
+                  "Smeasure": 0.919015,
+                  "Emeasure": 0.960236,
+                  "ContextMeasure": 0.898304
+                },
+                "cod10k": {
+                  "MAE": 0.014279,
+                  "WeightedFmeasure": 0.871626,
+                  "Smeasure": 0.919867,
+                  "Emeasure": 0.960465,
+                  "ContextMeasure": 0.86378
+                },
+                "nc4k": {
+                  "MAE": 0.020758,
+                  "WeightedFmeasure": 0.902275,
+                  "Smeasure": 0.928926,
+                  "Emeasure": 0.961887,
+                  "ContextMeasure": 0.889515
+                }
               }
             }
           ]
         },
         {
-          "id": "casia",
-          "name": "CASIA",
+          "id": "cnn",
+          "name": "CNN",
+          "datasets": [
+            {
+              "id": "camo",
+              "name": "CAMO"
+            },
+            {
+              "id": "cod10k",
+              "name": "COD10K"
+            },
+            {
+              "id": "nc4k",
+              "name": "NC4K"
+            }
+          ],
           "metrics": [
-            "Cmeasure"
+            "MAE",
+            "WeightedFmeasure",
+            "Smeasure",
+            "Emeasure",
+            "ContextMeasure"
           ],
           "higherIsBetter": {
-            "Cmeasure": true
+            "MAE": false,
+            "WeightedFmeasure": true,
+            "Smeasure": true,
+            "Emeasure": true,
+            "ContextMeasure": true
           },
+          "defaultMetric": "ContextMeasure",
           "models": [
             {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.483
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.66
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.46
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.461
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.619
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.157
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.82
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.34
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.833
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.039
-              }
-            },
-            {
               "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.428
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.557
-              }
-            },
-            {
-              "name": "UniverSeg",
+              "pubYear": "CVPR 20",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
               "paper": null,
               "code": null,
-              "year": null,
               "results": {
-                "Cmeasure": 0.166
+                "camo": {
+                  "MAE": 0.099657,
+                  "WeightedFmeasure": 0.605563,
+                  "Smeasure": 0.751457,
+                  "Emeasure": 0.834471,
+                  "ContextMeasure": 0.650249
+                },
+                "cod10k": {
+                  "MAE": 0.051128,
+                  "WeightedFmeasure": 0.550906,
+                  "Smeasure": 0.771005,
+                  "Emeasure": 0.797101,
+                  "ContextMeasure": 0.617628
+                },
+                "nc4k": {
+                  "MAE": 0.057642,
+                  "WeightedFmeasure": 0.722733,
+                  "Smeasure": 0.807991,
+                  "Emeasure": 0.883296,
+                  "ContextMeasure": 0.740042
+                }
+              }
+            },
+            {
+              "name": "PraNet",
+              "pubYear": "MICCAI 20",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.094187,
+                  "WeightedFmeasure": 0.662526,
+                  "Smeasure": 0.769226,
+                  "Emeasure": 0.834652,
+                  "ContextMeasure": 0.70668
+                },
+                "cod10k": {
+                  "MAE": 0.045115,
+                  "WeightedFmeasure": 0.629389,
+                  "Smeasure": 0.789443,
+                  "Emeasure": 0.839695,
+                  "ContextMeasure": 0.684459
+                },
+                "nc4k": {
+                  "MAE": 0.058789,
+                  "WeightedFmeasure": 0.724494,
+                  "Smeasure": 0.822175,
+                  "Emeasure": 0.875388,
+                  "ContextMeasure": 0.760371
+                }
+              }
+            },
+            {
+              "name": "TINet",
+              "pubYear": "AAAI 21",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.086519,
+                  "WeightedFmeasure": 0.67822,
+                  "Smeasure": 0.780525,
+                  "Emeasure": 0.846748,
+                  "ContextMeasure": 0.723309
+                },
+                "cod10k": {
+                  "MAE": 0.042487,
+                  "WeightedFmeasure": 0.635046,
+                  "Smeasure": 0.793153,
+                  "Emeasure": 0.847513,
+                  "ContextMeasure": 0.683746
+                },
+                "nc4k": {
+                  "MAE": 0.055159,
+                  "WeightedFmeasure": 0.733748,
+                  "Smeasure": 0.82872,
+                  "Emeasure": 0.881908,
+                  "ContextMeasure": 0.761201
+                }
+              }
+            },
+            {
+              "name": "LSR",
+              "pubYear": "CVPR 21",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.080103,
+                  "WeightedFmeasure": 0.696298,
+                  "Smeasure": 0.787163,
+                  "Emeasure": 0.859164,
+                  "ContextMeasure": 0.721905
+                },
+                "cod10k": {
+                  "MAE": 0.036757,
+                  "WeightedFmeasure": 0.672823,
+                  "Smeasure": 0.804423,
+                  "Emeasure": 0.882844,
+                  "ContextMeasure": 0.702821
+                },
+                "nc4k": {
+                  "MAE": 0.048011,
+                  "WeightedFmeasure": 0.765542,
+                  "Smeasure": 0.839503,
+                  "Emeasure": 0.904087,
+                  "ContextMeasure": 0.77644
+                }
+              }
+            },
+            {
+              "name": "MGL-R",
+              "pubYear": "CVPR 21",
+              "size": "473 x 473",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.088399,
+                  "WeightedFmeasure": 0.672794,
+                  "Smeasure": 0.7755,
+                  "Emeasure": 0.847619,
+                  "ContextMeasure": 0.699782
+                },
+                "cod10k": {
+                  "MAE": 0.035307,
+                  "WeightedFmeasure": 0.665533,
+                  "Smeasure": 0.813968,
+                  "Emeasure": 0.863801,
+                  "ContextMeasure": 0.697354
+                },
+                "nc4k": {
+                  "MAE": 0.052593,
+                  "WeightedFmeasure": 0.739183,
+                  "Smeasure": 0.832596,
+                  "Emeasure": 0.889353,
+                  "ContextMeasure": 0.757284
+                }
+              }
+            },
+            {
+              "name": "PFNet",
+              "pubYear": "CVPR 21",
+              "size": "416 x 416",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.084899,
+                  "WeightedFmeasure": 0.695206,
+                  "Smeasure": 0.782256,
+                  "Emeasure": 0.854705,
+                  "ContextMeasure": 0.72308
+                },
+                "cod10k": {
+                  "MAE": 0.039606,
+                  "WeightedFmeasure": 0.65987,
+                  "Smeasure": 0.799842,
+                  "Emeasure": 0.86827,
+                  "ContextMeasure": 0.699616
+                },
+                "nc4k": {
+                  "MAE": 0.052748,
+                  "WeightedFmeasure": 0.745268,
+                  "Smeasure": 0.82904,
+                  "Emeasure": 0.893747,
+                  "ContextMeasure": 0.766045
+                }
+              }
+            },
+            {
+              "name": "UJSCOD",
+              "pubYear": "CVPR 21",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.072976,
+                  "WeightedFmeasure": 0.727947,
+                  "Smeasure": 0.800146,
+                  "Emeasure": 0.872263,
+                  "ContextMeasure": 0.748471
+                },
+                "cod10k": {
+                  "MAE": 0.035309,
+                  "WeightedFmeasure": 0.683755,
+                  "Smeasure": 0.808883,
+                  "Emeasure": 0.882195,
+                  "ContextMeasure": 0.712549
+                },
+                "nc4k": {
+                  "MAE": 0.046549,
+                  "WeightedFmeasure": 0.771283,
+                  "Smeasure": 0.841519,
+                  "Emeasure": 0.906175,
+                  "ContextMeasure": 0.781794
+                }
+              }
+            },
+            {
+              "name": "UGTR",
+              "pubYear": "ICCV 21",
+              "size": "473 x 473",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.085855,
+                  "WeightedFmeasure": 0.686196,
+                  "Smeasure": 0.784734,
+                  "Emeasure": 0.860968,
+                  "ContextMeasure": 0.718708
+                },
+                "cod10k": {
+                  "MAE": 0.035389,
+                  "WeightedFmeasure": 0.666958,
+                  "Smeasure": 0.817769,
+                  "Emeasure": 0.849922,
+                  "ContextMeasure": 0.704865
+                },
+                "nc4k": {
+                  "MAE": 0.051778,
+                  "WeightedFmeasure": 0.746907,
+                  "Smeasure": 0.839349,
+                  "Emeasure": 0.888733,
+                  "ContextMeasure": 0.770079
+                }
+              }
+            },
+            {
+              "name": "C2FNet",
+              "pubYear": "IJCAI 21",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.079885,
+                  "WeightedFmeasure": 0.718651,
+                  "Smeasure": 0.796138,
+                  "Emeasure": 0.864866,
+                  "ContextMeasure": 0.743556
+                },
+                "cod10k": {
+                  "MAE": 0.036024,
+                  "WeightedFmeasure": 0.68619,
+                  "Smeasure": 0.812951,
+                  "Emeasure": 0.88559,
+                  "ContextMeasure": 0.72223
+                },
+                "nc4k": {
+                  "MAE": 0.049049,
+                  "WeightedFmeasure": 0.762383,
+                  "Smeasure": 0.838344,
+                  "Emeasure": 0.901005,
+                  "ContextMeasure": 0.784486
+                }
+              }
+            },
+            {
+              "name": "FDNet",
+              "pubYear": "CVPR 22",
+              "size": "416 x 416",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.06291,
+                  "WeightedFmeasure": 0.774585,
+                  "Smeasure": 0.841511,
+                  "Emeasure": 0.901407,
+                  "ContextMeasure": 0.807508
+                },
+                "cod10k": {
+                  "MAE": 0.029717,
+                  "WeightedFmeasure": 0.728842,
+                  "Smeasure": 0.840418,
+                  "Emeasure": 0.905786,
+                  "ContextMeasure": 0.76756
+                },
+                "nc4k": {
+                  "MAE": 0.051732,
+                  "WeightedFmeasure": 0.749598,
+                  "Smeasure": 0.833874,
+                  "Emeasure": 0.895454,
+                  "ContextMeasure": 0.778682
+                }
+              }
+            },
+            {
+              "name": "SegMaR",
+              "pubYear": "CVPR 22",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.070936,
+                  "WeightedFmeasure": 0.752903,
+                  "Smeasure": 0.815499,
+                  "Emeasure": 0.88136,
+                  "ContextMeasure": 0.771215
+                },
+                "cod10k": {
+                  "MAE": 0.033879,
+                  "WeightedFmeasure": 0.724022,
+                  "Smeasure": 0.833103,
+                  "Emeasure": 0.893434,
+                  "ContextMeasure": 0.745458
+                },
+                "nc4k": {
+                  "MAE": 0.04582,
+                  "WeightedFmeasure": 0.78104,
+                  "Smeasure": 0.840568,
+                  "Emeasure": 0.905253,
+                  "ContextMeasure": 0.779395
+                }
               }
             },
             {
               "name": "ZoomNet",
+              "pubYear": "CVPR 22",
+              "size": "384 x 384",
+              "backbone": "ResNet-50",
               "paper": null,
               "code": null,
-              "year": null,
               "results": {
-                "Cmeasure": 0.433
+                "camo": {
+                  "MAE": 0.065936,
+                  "WeightedFmeasure": 0.752241,
+                  "Smeasure": 0.819749,
+                  "Emeasure": 0.8825,
+                  "ContextMeasure": 0.772882
+                },
+                "cod10k": {
+                  "MAE": 0.028911,
+                  "WeightedFmeasure": 0.72875,
+                  "Smeasure": 0.838408,
+                  "Emeasure": 0.892921,
+                  "ContextMeasure": 0.742305
+                },
+                "nc4k": {
+                  "MAE": 0.043368,
+                  "WeightedFmeasure": 0.784401,
+                  "Smeasure": 0.852816,
+                  "Emeasure": 0.906819,
+                  "ContextMeasure": 0.791568
+                }
+              }
+            },
+            {
+              "name": "BGNet",
+              "pubYear": "IJCAI 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.073405,
+                  "WeightedFmeasure": 0.748517,
+                  "Smeasure": 0.811574,
+                  "Emeasure": 0.876195,
+                  "ContextMeasure": 0.769641
+                },
+                "cod10k": {
+                  "MAE": 0.032558,
+                  "WeightedFmeasure": 0.721886,
+                  "Smeasure": 0.830679,
+                  "Emeasure": 0.902128,
+                  "ContextMeasure": 0.74488
+                },
+                "nc4k": {
+                  "MAE": 0.04439,
+                  "WeightedFmeasure": 0.788375,
+                  "Smeasure": 0.851026,
+                  "Emeasure": 0.910757,
+                  "ContextMeasure": 0.798772
+                }
+              }
+            },
+            {
+              "name": "SINet-V2",
+              "pubYear": "TPAMI 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.070489,
+                  "WeightedFmeasure": 0.742566,
+                  "Smeasure": 0.820105,
+                  "Emeasure": 0.884171,
+                  "ContextMeasure": 0.777817
+                },
+                "cod10k": {
+                  "MAE": 0.036773,
+                  "WeightedFmeasure": 0.67962,
+                  "Smeasure": 0.815121,
+                  "Emeasure": 0.86355,
+                  "ContextMeasure": 0.725571
+                },
+                "nc4k": {
+                  "MAE": 0.047611,
+                  "WeightedFmeasure": 0.769817,
+                  "Smeasure": 0.847236,
+                  "Emeasure": 0.901089,
+                  "ContextMeasure": 0.793961
+                }
+              }
+            },
+            {
+              "name": "TPRNet",
+              "pubYear": "TVCJ 22",
+              "size": "352 x 352",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.073811,
+                  "WeightedFmeasure": 0.725481,
+                  "Smeasure": 0.807198,
+                  "Emeasure": 0.880208,
+                  "ContextMeasure": 0.755895
+                },
+                "cod10k": {
+                  "MAE": 0.036002,
+                  "WeightedFmeasure": 0.683469,
+                  "Smeasure": 0.817006,
+                  "Emeasure": 0.869252,
+                  "ContextMeasure": 0.720905
+                },
+                "nc4k": {
+                  "MAE": 0.047575,
+                  "WeightedFmeasure": 0.768127,
+                  "Smeasure": 0.846428,
+                  "Emeasure": 0.901153,
+                  "ContextMeasure": 0.786477
+                }
+              }
+            },
+            {
+              "name": "FEDER",
+              "pubYear": "CVPR 23",
+              "size": "384 x 384",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.071223,
+                  "WeightedFmeasure": 0.73773,
+                  "Smeasure": 0.8021,
+                  "Emeasure": 0.876645,
+                  "ContextMeasure": 0.760299
+                },
+                "cod10k": {
+                  "MAE": 0.0316,
+                  "WeightedFmeasure": 0.715542,
+                  "Smeasure": 0.822312,
+                  "Emeasure": 0.901024,
+                  "ContextMeasure": 0.736154
+                },
+                "nc4k": {
+                  "MAE": 0.044251,
+                  "WeightedFmeasure": 0.788638,
+                  "Smeasure": 0.847044,
+                  "Emeasure": 0.912969,
+                  "ContextMeasure": 0.794146
+                }
+              }
+            },
+            {
+              "name": "DGNet",
+              "pubYear": "MIR 23",
+              "size": "352 x 352",
+              "backbone": "EfficientNet-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.057195,
+                  "WeightedFmeasure": 0.76882,
+                  "Smeasure": 0.839056,
+                  "Emeasure": 0.906121,
+                  "ContextMeasure": 0.800454
+                },
+                "cod10k": {
+                  "MAE": 0.033057,
+                  "WeightedFmeasure": 0.692961,
+                  "Smeasure": 0.822305,
+                  "Emeasure": 0.878622,
+                  "ContextMeasure": 0.736336
+                },
+                "nc4k": {
+                  "MAE": 0.042465,
+                  "WeightedFmeasure": 0.783666,
+                  "Smeasure": 0.856899,
+                  "Emeasure": 0.910366,
+                  "ContextMeasure": 0.805161
+                }
+              }
+            },
+            {
+              "name": "DINet",
+              "pubYear": "TMM 24",
+              "size": "400 x 400",
+              "backbone": "Res2Net-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.068195,
+                  "WeightedFmeasure": 0.747675,
+                  "Smeasure": 0.821122,
+                  "Emeasure": 0.883726,
+                  "ContextMeasure": 0.777683
+                },
+                "cod10k": {
+                  "MAE": 0.031368,
+                  "WeightedFmeasure": 0.723548,
+                  "Smeasure": 0.832042,
+                  "Emeasure": 0.901534,
+                  "ContextMeasure": 0.750047
+                },
+                "nc4k": {
+                  "MAE": 0.043484,
+                  "WeightedFmeasure": 0.790312,
+                  "Smeasure": 0.855821,
+                  "Emeasure": 0.912295,
+                  "ContextMeasure": 0.804858
+                }
+              }
+            },
+            {
+              "name": "RUN",
+              "pubYear": "ICML 25",
+              "size": "352 x 352",
+              "backbone": "ResNet-50",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.068671,
+                  "WeightedFmeasure": 0.744457,
+                  "Smeasure": 0.8126,
+                  "Emeasure": 0.883647,
+                  "ContextMeasure": 0.771912
+                },
+                "cod10k": {
+                  "MAE": 0.029101,
+                  "WeightedFmeasure": 0.735249,
+                  "Smeasure": 0.839059,
+                  "Emeasure": 0.909856,
+                  "ContextMeasure": 0.766572
+                },
+                "nc4k": {
+                  "MAE": 0.042466,
+                  "WeightedFmeasure": 0.790033,
+                  "Smeasure": 0.854142,
+                  "Emeasure": 0.915765,
+                  "ContextMeasure": 0.808133
+                }
               }
             }
           ]
         },
         {
-          "id": "chameleon",
-          "name": "CHAMELEON",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
+          "id": "transformer",
+          "name": "Transformer",
+          "datasets": [
             {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.844
-              }
+              "id": "camo",
+              "name": "CAMO"
             },
             {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.853
-              }
+              "id": "cod10k",
+              "name": "COD10K"
             },
             {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.847
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.72
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.703
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.304
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.839
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.639
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.88
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.386
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.723
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.839
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.229
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.814
-              }
+              "id": "nc4k",
+              "name": "NC4K"
             }
-          ]
-        },
-        {
-          "id": "cod10k",
-          "name": "COD10K",
+          ],
           "metrics": [
-            "Cmeasure"
+            "MAE",
+            "WeightedFmeasure",
+            "Smeasure",
+            "Emeasure",
+            "ContextMeasure"
           ],
           "higherIsBetter": {
-            "Cmeasure": true
+            "MAE": false,
+            "WeightedFmeasure": true,
+            "Smeasure": true,
+            "Emeasure": true,
+            "ContextMeasure": true
           },
+          "defaultMetric": "ContextMeasure",
           "models": [
             {
-              "name": "FEDER",
+              "name": "DTINet",
+              "pubYear": "ICPR 22",
+              "size": "256 x 256",
+              "backbone": "ViT-B",
               "paper": null,
               "code": null,
-              "year": null,
               "results": {
-                "Cmeasure": 0.736
+                "camo": {
+                  "MAE": 0.050383,
+                  "WeightedFmeasure": 0.795635,
+                  "Smeasure": 0.856,
+                  "Emeasure": 0.917904,
+                  "ContextMeasure": 0.828566
+                },
+                "cod10k": {
+                  "MAE": 0.034223,
+                  "WeightedFmeasure": 0.694648,
+                  "Smeasure": 0.823918,
+                  "Emeasure": 0.880803,
+                  "ContextMeasure": 0.737303
+                },
+                "nc4k": {
+                  "MAE": 0.040644,
+                  "WeightedFmeasure": 0.792326,
+                  "Smeasure": 0.86274,
+                  "Emeasure": 0.914331,
+                  "ContextMeasure": 0.81572
+                }
               }
             },
             {
               "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.757
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.729
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.685
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.74
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.216
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.844
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.649
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.881
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.373
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.566
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.717
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.165
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.709
-              }
-            }
-          ]
-        },
-        {
-          "id": "coverage",
-          "name": "COVERAGE",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.164
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.277
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.107
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.131
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.233
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.176
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.862
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.39
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.862
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.032
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.143
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.208
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.224
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.174
-              }
-            }
-          ]
-        },
-        {
-          "id": "gsd",
-          "name": "GSD",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.862
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.881
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.867
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.856
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.875
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.55
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.879
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.227
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.876
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.287
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.837
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.87
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.324
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.843
-              }
-            }
-          ]
-        },
-        {
-          "id": "istd",
-          "name": "ISTD",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.929
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.884
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.905
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.922
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.901
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.724
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.789
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.381
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.784
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.13
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.862
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.923
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.162
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.855
-              }
-            }
-          ]
-        },
-        {
-          "id": "msd",
-          "name": "MSD",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.855
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.893
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.855
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.766
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.825
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.337
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.752
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.25
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.763
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.159
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.804
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.824
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.271
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.764
-              }
-            }
-          ]
-        },
-        {
-          "id": "nc4k",
-          "name": "NC4K",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.795
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.825
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.801
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.761
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.795
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.319
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.867
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.731
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.898
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.412
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.677
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.788
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.253
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.771
-              }
-            }
-          ]
-        },
-        {
-          "id": "pmd",
-          "name": "PMD",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.74
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.744
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.749
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.505
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.681
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.178
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.843
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.122
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.829
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.264
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.681
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.764
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.144
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.698
-              }
-            }
-          ]
-        },
-        {
-          "id": "sbu",
-          "name": "SBU",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.859
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.864
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.854
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.834
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.848
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.698
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.743
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.316
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.752
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.066
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.813
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.86
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.172
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.845
-              }
-            }
-          ]
-        },
-        {
-          "id": "trans10k",
-          "name": "Trans10K",
-          "metrics": [
-            "Cmeasure"
-          ],
-          "higherIsBetter": {
-            "Cmeasure": true
-          },
-          "models": [
-            {
-              "name": "FEDER",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.948
-              }
-            },
-            {
-              "name": "FSPNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.948
-              }
-            },
-            {
-              "name": "HetNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.948
-              }
-            },
-            {
-              "name": "HitNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.79
-              }
-            },
-            {
-              "name": "IML-ViT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.695
-              }
-            },
-            {
-              "name": "ManTraNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.613
-              }
-            },
-            {
-              "name": "SAM_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.898
-              }
-            },
-            {
-              "name": "SAM2",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.46
-              }
-            },
-            {
-              "name": "SAM2_GTBBox",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.921
-              }
-            },
-            {
-              "name": "SegGPT",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.276
-              }
-            },
-            {
-              "name": "SINet",
-              "paper": "https://arxiv.org/abs/2004.09030",
-              "code": "https://github.com/DengPingFan/SINet",
-              "year": 2020,
-              "results": {
-                "Cmeasure": 0.778
-              }
-            },
-            {
-              "name": "SINet-V2",
-              "paper": "https://arxiv.org/abs/2108.00128",
-              "code": "https://github.com/GewelsJI/SINet-V2",
-              "year": 2021,
-              "results": {
-                "Cmeasure": 0.831
-              }
-            },
-            {
-              "name": "UniverSeg",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.331
-              }
-            },
-            {
-              "name": "ZoomNet",
-              "paper": null,
-              "code": null,
-              "year": null,
-              "results": {
-                "Cmeasure": 0.937
+              "pubYear": "CVPR 23",
+              "size": "384 x 384",
+              "backbone": "ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.050307,
+                  "WeightedFmeasure": 0.79893,
+                  "Smeasure": 0.855948,
+                  "Emeasure": 0.919147,
+                  "ContextMeasure": 0.819795
+                },
+                "cod10k": {
+                  "MAE": 0.026374,
+                  "WeightedFmeasure": 0.734659,
+                  "Smeasure": 0.850643,
+                  "Emeasure": 0.899883,
+                  "ContextMeasure": 0.761906
+                },
+                "nc4k": {
+                  "MAE": 0.034984,
+                  "WeightedFmeasure": 0.815595,
+                  "Smeasure": 0.878501,
+                  "Emeasure": 0.923001,
+                  "ContextMeasure": 0.827113
+                }
+              }
+            },
+            {
+              "name": "RISNet",
+              "pubYear": "CVPR 24",
+              "size": "704 x 704",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.050426,
+                  "WeightedFmeasure": 0.827368,
+                  "Smeasure": 0.869549,
+                  "Emeasure": 0.921756,
+                  "ContextMeasure": 0.847184
+                },
+                "cod10k": {
+                  "MAE": 0.024702,
+                  "WeightedFmeasure": 0.798985,
+                  "Smeasure": 0.87335,
+                  "Emeasure": 0.927288,
+                  "ContextMeasure": 0.806292
+                },
+                "nc4k": {
+                  "MAE": 0.036649,
+                  "WeightedFmeasure": 0.834196,
+                  "Smeasure": 0.881713,
+                  "Emeasure": 0.926387,
+                  "ContextMeasure": 0.83697
+                }
+              }
+            },
+            {
+              "name": "VSCode",
+              "pubYear": "CVPR 24",
+              "size": "352 x 352",
+              "backbone": "Swin-S",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.046051,
+                  "WeightedFmeasure": 0.820375,
+                  "Smeasure": 0.873297,
+                  "Emeasure": 0.928323,
+                  "ContextMeasure": 0.843096
+                },
+                "cod10k": {
+                  "MAE": 0.023476,
+                  "WeightedFmeasure": 0.780379,
+                  "Smeasure": 0.86878,
+                  "Emeasure": 0.928707,
+                  "ContextMeasure": 0.79582
+                },
+                "nc4k": {
+                  "MAE": 0.031537,
+                  "WeightedFmeasure": 0.84127,
+                  "Smeasure": 0.891029,
+                  "Emeasure": 0.938631,
+                  "ContextMeasure": 0.845411
+                }
+              }
+            },
+            {
+              "name": "FSEL",
+              "pubYear": "ECCV 24",
+              "size": "416 x 416",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040004,
+                  "WeightedFmeasure": 0.850789,
+                  "Smeasure": 0.884853,
+                  "Emeasure": 0.942449,
+                  "ContextMeasure": 0.866938
+                },
+                "cod10k": {
+                  "MAE": 0.021145,
+                  "WeightedFmeasure": 0.799578,
+                  "Smeasure": 0.876536,
+                  "Emeasure": 0.927702,
+                  "ContextMeasure": 0.814974
+                },
+                "nc4k": {
+                  "MAE": 0.029895,
+                  "WeightedFmeasure": 0.852937,
+                  "Smeasure": 0.892991,
+                  "Emeasure": 0.940829,
+                  "ContextMeasure": 0.854939
+                }
+              }
+            },
+            {
+              "name": "DPRNet",
+              "pubYear": "TCSVT 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.045998,
+                  "WeightedFmeasure": 0.829911,
+                  "Smeasure": 0.864964,
+                  "Emeasure": 0.93098,
+                  "ContextMeasure": 0.844797
+                },
+                "cod10k": {
+                  "MAE": 0.024945,
+                  "WeightedFmeasure": 0.771456,
+                  "Smeasure": 0.854432,
+                  "Emeasure": 0.925979,
+                  "ContextMeasure": 0.788372
+                },
+                "nc4k": {
+                  "MAE": 0.03275,
+                  "WeightedFmeasure": 0.838395,
+                  "Smeasure": 0.879573,
+                  "Emeasure": 0.936511,
+                  "ContextMeasure": 0.839721
+                }
+              }
+            },
+            {
+              "name": "CamoFormer",
+              "pubYear": "TPAMI 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.046098,
+                  "WeightedFmeasure": 0.830599,
+                  "Smeasure": 0.871779,
+                  "Emeasure": 0.931051,
+                  "ContextMeasure": 0.848221
+                },
+                "cod10k": {
+                  "MAE": 0.022559,
+                  "WeightedFmeasure": 0.78638,
+                  "Smeasure": 0.869074,
+                  "Emeasure": 0.930989,
+                  "ContextMeasure": 0.800612
+                },
+                "nc4k": {
+                  "MAE": 0.030128,
+                  "WeightedFmeasure": 0.847008,
+                  "Smeasure": 0.891535,
+                  "Emeasure": 0.940926,
+                  "ContextMeasure": 0.849856
+                }
+              }
+            },
+            {
+              "name": "ZoomNeXt",
+              "pubYear": "TPAMI 24",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040405,
+                  "WeightedFmeasure": 0.859478,
+                  "Smeasure": 0.888091,
+                  "Emeasure": 0.935113,
+                  "ContextMeasure": 0.868392
+                },
+                "cod10k": {
+                  "MAE": 0.016973,
+                  "WeightedFmeasure": 0.838263,
+                  "Smeasure": 0.898277,
+                  "Emeasure": 0.945402,
+                  "ContextMeasure": 0.835778
+                },
+                "nc4k": {
+                  "MAE": 0.027706,
+                  "WeightedFmeasure": 0.865329,
+                  "Smeasure": 0.900448,
+                  "Emeasure": 0.943264,
+                  "ContextMeasure": 0.860059
+                }
+              }
+            },
+            {
+              "name": "ESCNet",
+              "pubYear": "ICCV 25",
+              "size": "416 x 416",
+              "backbone": "PVTv2-B5",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.040774,
+                  "WeightedFmeasure": 0.84883,
+                  "Smeasure": 0.875478,
+                  "Emeasure": 0.940346,
+                  "ContextMeasure": 0.858211
+                },
+                "cod10k": {
+                  "MAE": 0.020412,
+                  "WeightedFmeasure": 0.808231,
+                  "Smeasure": 0.873488,
+                  "Emeasure": 0.944463,
+                  "ContextMeasure": 0.812948
+                },
+                "nc4k": {
+                  "MAE": 0.027838,
+                  "WeightedFmeasure": 0.863953,
+                  "Smeasure": 0.892857,
+                  "Emeasure": 0.948664,
+                  "ContextMeasure": 0.857771
+                }
+              }
+            },
+            {
+              "name": "SAM-TTT",
+              "pubYear": "MM 25",
+              "size": "1024 x 1024",
+              "backbone": "SAM ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.045524,
+                  "WeightedFmeasure": 0.837374,
+                  "Smeasure": 0.868514,
+                  "Emeasure": 0.942049,
+                  "ContextMeasure": 0.854931
+                },
+                "cod10k": {
+                  "MAE": 0.024241,
+                  "WeightedFmeasure": 0.801214,
+                  "Smeasure": 0.873989,
+                  "Emeasure": 0.931562,
+                  "ContextMeasure": 0.819002
+                },
+                "nc4k": {
+                  "MAE": 0.032814,
+                  "WeightedFmeasure": 0.854315,
+                  "Smeasure": 0.890245,
+                  "Emeasure": 0.946195,
+                  "ContextMeasure": 0.856707
+                }
+              }
+            },
+            {
+              "name": "CFRN",
+              "pubYear": "TIP 25",
+              "size": "384 x 384",
+              "backbone": "Swin-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.03901,
+                  "WeightedFmeasure": 0.848512,
+                  "Smeasure": 0.880843,
+                  "Emeasure": 0.943075,
+                  "ContextMeasure": 0.863766
+                },
+                "cod10k": {
+                  "MAE": 0.020854,
+                  "WeightedFmeasure": 0.799517,
+                  "Smeasure": 0.872395,
+                  "Emeasure": 0.939453,
+                  "ContextMeasure": 0.812053
+                },
+                "nc4k": {
+                  "MAE": 0.029101,
+                  "WeightedFmeasure": 0.854557,
+                  "Smeasure": 0.89105,
+                  "Emeasure": 0.947337,
+                  "ContextMeasure": 0.855662
+                }
+              }
+            },
+            {
+              "name": "SENet",
+              "pubYear": "TIP 25",
+              "size": "384 x 384",
+              "backbone": "MAE",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.03877,
+                  "WeightedFmeasure": 0.847013,
+                  "Smeasure": 0.888407,
+                  "Emeasure": 0.926797,
+                  "ContextMeasure": 0.864406
+                },
+                "cod10k": {
+                  "MAE": 0.023902,
+                  "WeightedFmeasure": 0.779063,
+                  "Smeasure": 0.865339,
+                  "Emeasure": 0.919181,
+                  "ContextMeasure": 0.794531
+                },
+                "nc4k": {
+                  "MAE": 0.031921,
+                  "WeightedFmeasure": 0.843483,
+                  "Smeasure": 0.888758,
+                  "Emeasure": 0.930212,
+                  "ContextMeasure": 0.844688
+                }
+              }
+            },
+            {
+              "name": "CODIB",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B2",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.044982,
+                  "WeightedFmeasure": 0.831155,
+                  "Smeasure": 0.875448,
+                  "Emeasure": 0.923765,
+                  "ContextMeasure": 0.849559
+                },
+                "cod10k": {
+                  "MAE": 0.02277,
+                  "WeightedFmeasure": 0.787417,
+                  "Smeasure": 0.869709,
+                  "Emeasure": 0.9261,
+                  "ContextMeasure": 0.80221
+                },
+                "nc4k": {
+                  "MAE": 0.031793,
+                  "WeightedFmeasure": 0.844778,
+                  "Smeasure": 0.89004,
+                  "Emeasure": 0.931825,
+                  "ContextMeasure": 0.847487
+                }
+              }
+            },
+            {
+              "name": "SFCNet",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "SMT-T",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042251,
+                  "WeightedFmeasure": 0.84561,
+                  "Smeasure": 0.881545,
+                  "Emeasure": 0.934342,
+                  "ContextMeasure": 0.86045
+                },
+                "cod10k": {
+                  "MAE": 0.021773,
+                  "WeightedFmeasure": 0.797447,
+                  "Smeasure": 0.872347,
+                  "Emeasure": 0.93825,
+                  "ContextMeasure": 0.804539
+                },
+                "nc4k": {
+                  "MAE": 0.030883,
+                  "WeightedFmeasure": 0.849591,
+                  "Smeasure": 0.890649,
+                  "Emeasure": 0.939427,
+                  "ContextMeasure": 0.847204
+                }
+              }
+            },
+            {
+              "name": "UTNet",
+              "pubYear": "TMM 25",
+              "size": "384 x 384",
+              "backbone": "SMT-T",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.048858,
+                  "WeightedFmeasure": 0.82867,
+                  "Smeasure": 0.867855,
+                  "Emeasure": 0.925667,
+                  "ContextMeasure": 0.84539
+                },
+                "cod10k": {
+                  "MAE": 0.022398,
+                  "WeightedFmeasure": 0.791345,
+                  "Smeasure": 0.868223,
+                  "Emeasure": 0.933167,
+                  "ContextMeasure": 0.799023
+                },
+                "nc4k": {
+                  "MAE": 0.032036,
+                  "WeightedFmeasure": 0.845693,
+                  "Smeasure": 0.88743,
+                  "Emeasure": 0.938114,
+                  "ContextMeasure": 0.844815
+                }
+              }
+            },
+            {
+              "name": "Camodiffusion",
+              "pubYear": "TPAMI 25",
+              "size": "384 x 384",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042376,
+                  "WeightedFmeasure": 0.85125,
+                  "Smeasure": 0.878121,
+                  "Emeasure": 0.939945,
+                  "ContextMeasure": 0.859958
+                },
+                "cod10k": {
+                  "MAE": 0.019005,
+                  "WeightedFmeasure": 0.81682,
+                  "Smeasure": 0.883029,
+                  "Emeasure": 0.946286,
+                  "ContextMeasure": 0.817885
+                },
+                "nc4k": {
+                  "MAE": 0.028323,
+                  "WeightedFmeasure": 0.860894,
+                  "Smeasure": 0.895103,
+                  "Emeasure": 0.945948,
+                  "ContextMeasure": 0.854027
+                }
+              }
+            },
+            {
+              "name": "VSCode-V2",
+              "pubYear": "TPAMI 25",
+              "size": "352 x 352",
+              "backbone": "Swin-S",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.048603,
+                  "WeightedFmeasure": 0.817204,
+                  "Smeasure": 0.874944,
+                  "Emeasure": 0.921482,
+                  "ContextMeasure": 0.840361
+                },
+                "cod10k": {
+                  "MAE": 0.023694,
+                  "WeightedFmeasure": 0.786984,
+                  "Smeasure": 0.874049,
+                  "Emeasure": 0.925344,
+                  "ContextMeasure": 0.80073
+                },
+                "nc4k": {
+                  "MAE": 0.031195,
+                  "WeightedFmeasure": 0.845395,
+                  "Smeasure": 0.896533,
+                  "Emeasure": 0.937574,
+                  "ContextMeasure": 0.848596
+                }
+              }
+            },
+            {
+              "name": "GBNet",
+              "pubYear": "TIP 26",
+              "size": "704 x 704",
+              "backbone": "PVTv2-B4",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.044,
+                  "WeightedFmeasure": 0.847414,
+                  "Smeasure": 0.880945,
+                  "Emeasure": 0.926423,
+                  "ContextMeasure": 0.862471
+                },
+                "cod10k": {
+                  "MAE": 0.019008,
+                  "WeightedFmeasure": 0.837026,
+                  "Smeasure": 0.897669,
+                  "Emeasure": 0.944955,
+                  "ContextMeasure": 0.838313
+                },
+                "nc4k": {
+                  "MAE": 0.030385,
+                  "WeightedFmeasure": 0.859814,
+                  "Smeasure": 0.897484,
+                  "Emeasure": 0.934711,
+                  "ContextMeasure": 0.858333
+                }
+              }
+            },
+            {
+              "name": "ICL-Camo",
+              "pubYear": "TIP 26",
+              "size": "392 x 392",
+              "backbone": "ViT-B",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.036927,
+                  "WeightedFmeasure": 0.858965,
+                  "Smeasure": 0.892119,
+                  "Emeasure": 0.94429,
+                  "ContextMeasure": 0.870252
+                },
+                "cod10k": {
+                  "MAE": 0.016613,
+                  "WeightedFmeasure": 0.834191,
+                  "Smeasure": 0.896363,
+                  "Emeasure": 0.949806,
+                  "ContextMeasure": 0.837471
+                },
+                "nc4k": {
+                  "MAE": 0.023791,
+                  "WeightedFmeasure": 0.878994,
+                  "Smeasure": 0.912032,
+                  "Emeasure": 0.954449,
+                  "ContextMeasure": 0.872806
+                }
+              }
+            },
+            {
+              "name": "SAM2-UNet",
+              "pubYear": "VINT 26",
+              "size": "352 x 352",
+              "backbone": "SAM2-Hiera-L",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.042122,
+                  "WeightedFmeasure": 0.844699,
+                  "Smeasure": 0.883629,
+                  "Emeasure": 0.933421,
+                  "ContextMeasure": 0.858507
+                },
+                "cod10k": {
+                  "MAE": 0.020992,
+                  "WeightedFmeasure": 0.798311,
+                  "Smeasure": 0.880311,
+                  "Emeasure": 0.926162,
+                  "ContextMeasure": 0.812951
+                },
+                "nc4k": {
+                  "MAE": 0.02935,
+                  "WeightedFmeasure": 0.856329,
+                  "Smeasure": 0.901009,
+                  "Emeasure": 0.940328,
+                  "ContextMeasure": 0.856809
+                }
+              }
+            },
+            {
+              "name": "DepthSAM",
+              "pubYear": "CVPR 26",
+              "size": "512 x 512",
+              "backbone": "DAv2 ViT-L",
+              "paper": null,
+              "code": null,
+              "results": {
+                "camo": {
+                  "MAE": 0.028033,
+                  "WeightedFmeasure": 0.894839,
+                  "Smeasure": 0.919015,
+                  "Emeasure": 0.960236,
+                  "ContextMeasure": 0.898304
+                },
+                "cod10k": {
+                  "MAE": 0.014279,
+                  "WeightedFmeasure": 0.871626,
+                  "Smeasure": 0.919867,
+                  "Emeasure": 0.960465,
+                  "ContextMeasure": 0.86378
+                },
+                "nc4k": {
+                  "MAE": 0.020758,
+                  "WeightedFmeasure": 0.902275,
+                  "Smeasure": 0.928926,
+                  "Emeasure": 0.961887,
+                  "ContextMeasure": 0.889515
+                }
               }
             }
           ]
