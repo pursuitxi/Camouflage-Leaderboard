@@ -472,11 +472,11 @@ function renderCarousel() {
 function renderBibtex() {
   return `
     <section class="section" id="BibTeX"><div><h2 class="title">BibTeX</h2><pre class="bibtex"><code>
-@article{wang2025cmeasure,
+@article{wang2026cmeasure,
   title={Context-measure: Contextualizing Metric for Camouflage},
-  author={Wang, Chen-Yang and Ji, Gepeng and Shao, Song and Cheng, Ming-Ming and Fan, Deng-Ping},
+  author={Wang, Chen-Yang and Ji, Ge-Peng and Shao, Song and Cheng, Ming-Ming and Fan, Deng-Ping},
   journal={arXiv preprint arXiv:2512.07076},
-  year={2025}
+  year={2026}
 }
       </code></pre></div></section><footer class="footer"><div><div>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. </div><p class="mt-1 text-base"> Feel free to contact us: <a href="mailto:EMAIL">fdp@nankai.edu.cn</a> / <a href="mailto:EMAIL">wangchenyang213@gmail.com</a></p></div></footer>
   `;
